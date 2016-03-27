@@ -13,7 +13,7 @@ class LocationController extends Controller
 {
      public function index()
     {
-        $locations = Location::all();
+        $locations = Location::with('stories')->get();
         return view('locations' ,['locations' => $locations]);
     }
 

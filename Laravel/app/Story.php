@@ -8,11 +8,11 @@ class Story extends Model
 {
     public function locations()
     {
-	return $this->hasOne('App\Location');
+	return $this->belongsTo('App\Location');
     }
      
     public function tags()
     {
-	return $this->hasMany("App\Tag");
+	return $this->belongsToMany("App\Tag");
     }
 }
