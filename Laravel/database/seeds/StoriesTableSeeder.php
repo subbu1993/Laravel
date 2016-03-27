@@ -13,15 +13,20 @@ class StoriesTableSeeder extends Seeder
     {
 	$faker = Faker\Factory::create();
 
-	$limit = 40;
-	for($i = 0; $i < $limit; $i++) 
+	$limit = 2;
+	$locations = App\Location::get();
+	foreach($locations as $location)
 	{
-		DB::table('stories')->insert([
-		//,
-		'title' => $faker->text($maxNbChars = 10),
-		'story' => $faker->text,
-		'published' => $faker->boolean($chanceOfGettingTrue = 50),
-		]);
-	}
+		for($i = 0; $i < $limit; $i++) 
+		{
+			DB::table('stories')->insert([
+			//,
+			'title' => $faker->text($maxNbChars = 10),
+			'story' => $faker->text,
+			'published' => $faker->boolean($chanceOfGettingTrue = 50),
+			'location_id' => $location->id,
+			]);
+		}	
+    	}	
     }
-}
+}	

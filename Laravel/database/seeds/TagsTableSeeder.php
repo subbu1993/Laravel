@@ -16,10 +16,21 @@ class TagsTableSeeder extends Seeder
         $limit = 40;
         for($i = 0; $i < $limit; $i++)
 	{
-                DB::table('tags')->insert([
+               $tag =  DB::table('tags')->insert([
                 //,
                 'value' => $faker->text($maxNbChars = 10),
                 ]);
+		
         }
+	
+	$stories = App\Story::get();
+	foreach($stories as $story)
+	{
+		$tag_id = rand(1,count(App\Tag::get()));
+		DB::table('story_tag')->insert([
+		'story_id' => $story->id,
+		'tag_id' =>   $tag_id,
+		]);
+	}
     }
 }
