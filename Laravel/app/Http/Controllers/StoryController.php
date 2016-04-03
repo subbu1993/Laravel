@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use App\Story;
 use App\Tag;
+use App\Location;
 class StoryController extends Controller
 {
     public function index()
@@ -21,5 +22,21 @@ class StoryController extends Controller
     {
 	$tags = Tag::all();
   	return view('tags', ['tags' => $tags]);
+    }
+    public function create()
+    {
+	$locations = Location::all();
+	return view('story.create',['locations' => $locations ]);
+	
+    }
+    public function store(Request $request)
+    {
+	   $story = new Story;
+	   $story->title = $request->input('title');
+	   $story->story = $request->input('story');
+	   $story->location_id = $request->input('location_id');
+	   $story->published = $request->input('published');
+	   $story->save();
+
     }
 }

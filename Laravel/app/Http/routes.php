@@ -17,7 +17,8 @@ Route::get('/weather/{location}','WeatherController@getWeather');
 Route::get('/locations','LocationController@index');
 Route::get('/stories','StoryController@index');
 Route::get('/tags','StoryController@tags');
-
+Route::get('/story/create','StoryController@create');
+Route::post('/story/store','StoryController@store');
 
 /*
 |--------------------------------------------------------------------------
