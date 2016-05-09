@@ -20,6 +20,8 @@ Route::get('/tags','StoryController@tags');
 Route::get('/story/create','StoryController@create');
 Route::post('/story/store','StoryController@store');
 
+Route::get('/api/stories','StoryController@api_stories');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes

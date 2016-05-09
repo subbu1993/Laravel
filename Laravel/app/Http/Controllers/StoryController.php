@@ -27,7 +27,7 @@ class StoryController extends Controller
     {
 	$locations = Location::all();
 	return view('story.create',['locations' => $locations ]);
-	
+
     }
     public function store(Request $request)
     {
@@ -38,5 +38,11 @@ class StoryController extends Controller
 	   $story->published = $request->input('published');
 	   $story->save();
 
+    }
+
+    public function api_stories()
+    {
+      $results = Story::all();
+      return response()->json($results);
     }
 }

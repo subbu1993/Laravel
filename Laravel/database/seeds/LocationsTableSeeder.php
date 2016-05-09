@@ -13,11 +13,11 @@ class LocationsTableSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 	$limit = 20;
-	
+
 	for($i = 0; $i < $limit; $i++)
 	{
 		echo $faker->city;
-		for($i = 0; $i < $limit; $i++) 
+		for($i = 0; $i < $limit; $i++)
 		{
 			DB::table('locations')->insert ([
 			//,
